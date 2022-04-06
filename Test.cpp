@@ -151,19 +151,19 @@ TEST_CASE("Compare tests")
 
 TEST_CASE("Input and Output tests")
 {
-    Matrix m13{{2,1,2,2} , 1, 2};
-    stringstream is;
-    is << "[3 3], [2, 2]";
-    CHECK_THROWS(is >> m13);
+    Matrix m1{{2,1,2,2} , 1, 2};
+    stringstream ss;
+    ss << "[3 3], [2, 2]";
+    CHECK_THROWS(ss >> m1);
 
     stringstream input("[1 1], [1 1], [1 1], [1 1]");
-    Matrix m;
-    input>>m;
+    Matrix m2;
+    input>>m2;
     vector<double> a = {1,1,1,1,1,1,1,1};
     Matrix A(a,4,2);
-    CHECK(A==m);
+    CHECK(A==m2);
     stringstream output;
-    output << m;
+    output << m2;
     CHECK(output.str()=="[1 1]\n"
                         "[1 1]\n"
                         "[1 1]\n"
