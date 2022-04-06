@@ -135,7 +135,6 @@ TEST_CASE("Compare tests")
 
     //check throw Compare
     vector<double> v1 = {2,2,3,2,2,3,2,2,3};
-    CHECK_THROWS(Matrix a(v1,3,2));
     Matrix a(v1,3,3);
     vector<double> v2 = {1,1,1,1};
     Matrix b(v2,2,2);
