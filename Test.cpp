@@ -133,4 +133,43 @@ TEST_CASE("Compare tests")
    
 
 
+    //check throw Compare
+    vector<double> v1 = {2,2,3,2,2,3,2,2,3};
+    CHECK_THROWS(Matrix a(v1,3,2));
+    Matrix a(v1,3,3);
+    vector<double> v2 = {1,1,1,1};
+    Matrix b(v2,2,2);
+
+    bool c;
+    CHECK_THROWS(c = a>=b);
+    CHECK_THROWS(c = a>b);
+    CHECK_THROWS(c = a!=b);  
+    CHECK_THROWS(c  = a==b);
+    CHECK_THROWS(c = a<b);
+    CHECK_THROWS(c = a<=b);
 }
+
+
+TEST_CASE("Input and Output tests")
+{
+    Matrix m13{{2,1,2,2} , 1, 2};
+    stringstream is;
+    is << "[3 3], [2, 2]";
+    CHECK_THROWS(is >> m13);
+
+    stringstream input("[1 1], [1 1], [1 1], [1 1]");
+    Matrix m;
+    input>>m;
+    vector<double> a = {1,1,1,1,1,1,1,1};
+    Matrix A(a,4,2);
+    CHECK(A==m);
+    stringstream output;
+    output << m;
+    CHECK(output.str()=="[1 1]\n"
+                        "[1 1]\n"
+                        "[1 1]\n"
+                        "[1 1]\n"); 
+
+}
+
+
