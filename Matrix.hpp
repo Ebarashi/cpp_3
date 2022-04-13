@@ -11,8 +11,7 @@ namespace zich
     {
     private:
 
-        int rows, cols;
-        int size;
+        int rows, cols, size;
         vector<double> data;
 
     public:
@@ -36,20 +35,20 @@ namespace zich
         ~Matrix();
 
         //Add
-        Matrix operator+(const Matrix& other) const; 
+        Matrix operator+(const Matrix& mat) const; 
         Matrix& operator+=(const Matrix& other);      
         Matrix operator+() const;                   
 
         // Sub
-        Matrix operator-(const Matrix& other) const;  
+        Matrix operator-(const Matrix& mat) const;  
         Matrix& operator-=(const Matrix& other);      
         Matrix operator-() const;         
 
         // Inc and dec
         Matrix& operator++();    
-        Matrix operator++(const int);  
+        Matrix operator++(const int val);  
         Matrix& operator--();    
-        Matrix operator--(const int);   
+        Matrix operator--(const int val);   
 
 
         // Mult
@@ -57,7 +56,7 @@ namespace zich
         Matrix& operator*=(const Matrix& other);                      
         Matrix operator*(const double scalar) const;                        
         Matrix& operator*=(const double scalar);                            
-        friend Matrix operator*(const double scalar, const Matrix& other);             
+        friend Matrix operator*(const double scalar, const Matrix& mat);             
 
         //Compare
         bool operator>(const Matrix& other) const;   
